@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [x] Commit: `Implement add function in Notification repository.`
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [x] Commit: `Create Notification service struct skeleton.`
     -   [x] Commit: `Implement subscribe function in Notification service.`
@@ -74,9 +74,9 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement unsubscribe function in Notification service.`
     -   [x] Commit: `Implement unsubscribe function in Notification controller.`
     -   [x] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
     -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
@@ -85,5 +85,8 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. RwLock digunakan karena memungkinkan beberapa thread untuk membaca data secara bersamaan, tetapi hanya satu thread yang bisa menulis. Ini lebih efisien dibandingkan Mutex yang selalu mengunci akses termasuk untuk membaca. Jika menggunakan Mutex, setiap thread harus menunggu gilirannya untuk membaca. Hal ini bisa memperlambat program jika banyak pembacaan terjadi.
+
+2. Rust mencegah mutasi langsung pada static karena alasan thread-safety. Di Java, kita bisa mengubah static dengan fungsi statis, tetapi ini bisa memungkinkan race condition terjadi jika banyak thread  yang mengakses sekailgus. Rust memaksa kita menggunakan alat seperti lazy_static dan synchronization primitives (seperti Mutex atau RwLock) agar akses ke static tetap aman dan tidak menyebabkan bug.
 
 #### Reflection Subscriber-2
