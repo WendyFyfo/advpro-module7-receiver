@@ -7,6 +7,7 @@ pub fn route_stage() -> AdHoc {
         rocket
             .mount("/", routes![notification::subscribe, 
             notification::unsubscribe,
-            notification::receive])
+            notification::receive,
+            notification::list])
     });
 }
